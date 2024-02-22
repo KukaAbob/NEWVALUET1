@@ -47,15 +47,15 @@ namespace NEWVALUET
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(Driver != null)
+            if (Driver != null)
             {
                 Driver.Quit();
             }
             var edgeDriverPath = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedgedriver.exe";
 
-            // Инициализация браузера Edge
+/*открывается edge веб браузер*/
             var edgeOptions = new EdgeOptions();
-            edgeOptions.AddArgument("--headless"); // Открывать браузер на весь экран
+            edgeOptions.AddArgument("--headless"); /*headless типо убирает экран браузера*/
 
             Driver = new EdgeDriver(edgeDriverPath, edgeOptions);
 
@@ -64,20 +64,24 @@ namespace NEWVALUET
             HideEdgeBrowserWindow();
 
             /*Попробуй другой сайт тк этот требует куки которые блокуются*/
-            By firstStep = By.XPath("//table[@class='half-table']/tdoby/td/");
-
+            
             IWebElement aboba = Driver.FindElement(By.CssSelector("#wrap > div.container > div > div:nth-child(3) > div.accordion__body > div:nth-child(1) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2)"));
             IWebElement abob = Driver.FindElement(By.CssSelector("#wrap > div.container > div > div:nth-child(3) > div.accordion__body > div:nth-child(1) > div:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > span"));
             string Straboba = aboba.Text;
             string Jrabob = abob.Text;
-            // Вывод текста в ваш TextBox
             textBox2.Text = Straboba;
             textBox1.Text = Jrabob;
 
-            // Проверяем, что заголовок не пустой
             string.IsNullOrWhiteSpace(Straboba);
 
+            Driver.Navigate().GoToUrl("https://pomenyay.kz/?ref=xranks");
 
+            IWebElement dollar = Driver.FindElement(By.XPath("/html/body/div[2]/div[1]/form/div/table/tbody/tr[1]/td[3]/div"));
+            IWebElement euro = Driver.FindElement(By.XPath("/html/body/div[2]/div[1]/form/div/table/tbody/tr[1]/td[5]/div"));
+            IWebElement veznoDerevanny = Driver.FindElement(By.XPath("/html/body/div[2]/div[1]/form/div/table/tbody/tr[1]/td[7]/div"));
+            textBoxDollar.Text = dollar.Text;
+            textBoxEuro.Text = euro.Text;
+            textBoxRub.Text = veznoDerevanny.Text;
 
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,6 +102,11 @@ namespace NEWVALUET
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             button1.Text = textBox2.Text;
+        }
+
+        private void textBoxDollar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

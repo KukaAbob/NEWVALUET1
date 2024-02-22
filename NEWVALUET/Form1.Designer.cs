@@ -35,6 +35,9 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             richTextBox1 = new RichTextBox();
+            textBoxDollar = new TextBox();
+            textBoxEuro = new TextBox();
+            textBoxRub = new TextBox();
             SuspendLayout();
             // 
             // button1
@@ -89,7 +92,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(200, 92);
+            textBox2.Location = new Point(224, 134);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 5;
@@ -106,11 +109,36 @@
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
+            // textBoxDollar
+            // 
+            textBoxDollar.Location = new Point(200, 26);
+            textBoxDollar.Name = "textBoxDollar";
+            textBoxDollar.Size = new Size(125, 27);
+            textBoxDollar.TabIndex = 7;
+            textBoxDollar.TextChanged += textBoxDollar_TextChanged;
+            // 
+            // textBoxEuro
+            // 
+            textBoxEuro.Location = new Point(200, 59);
+            textBoxEuro.Name = "textBoxEuro";
+            textBoxEuro.Size = new Size(125, 27);
+            textBoxEuro.TabIndex = 8;
+            // 
+            // textBoxRub
+            // 
+            textBoxRub.Location = new Point(200, 92);
+            textBoxRub.Name = "textBoxRub";
+            textBoxRub.Size = new Size(125, 27);
+            textBoxRub.TabIndex = 9;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(419, 375);
+            Controls.Add(textBoxRub);
+            Controls.Add(textBoxEuro);
+            Controls.Add(textBoxDollar);
             Controls.Add(richTextBox1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -134,5 +162,8 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private RichTextBox richTextBox1;
+        private TextBox textBoxDollar;
+        private TextBox textBoxEuro;
+        private TextBox textBoxRub;
     }
 }
